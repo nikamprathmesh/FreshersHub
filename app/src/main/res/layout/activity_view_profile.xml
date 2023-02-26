@@ -111,6 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/profile_margin_horizontal"
                 android:visibility="gone"
                 >
 
@@ -123,6 +124,7 @@
                     android:id="@+id/edit_profile_primary_roll_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="Roll Number"/>
                 <EditText
                     android:id="@+id/edit_profile_primary_qualification"
@@ -133,6 +135,7 @@
                     android:id="@+id/edit_profile_primary_passing_year"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="Passing Year"/>
                 <EditText
                     android:id="@+id/edit_profile_primary_stream"
@@ -290,6 +293,7 @@
                         android:id="@+id/edit_profile_contact_no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="number"
                         android:hint="Enter Contact Number"/>
                     <EditText
                         android:id="@+id/edit_profile_work_email"

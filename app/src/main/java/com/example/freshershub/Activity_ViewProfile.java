@@ -226,9 +226,10 @@ public class Activity_ViewProfile extends AppCompatActivity {
         editContactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                editPersonalEmail.setText(personalEmail.getText().toString());
-//                editContactNo.setText(contactNo.getText().toString());
-//                editWorkEmail.setText(workEmail.getText().toString());
+                editPersonalEmail.setText(personalEmail.getText().toString());
+                editContactNo.setText(contactNo.getText().toString());
+                editWorkEmail.setText(workEmail.getText().toString());
+                editAddress.setText(address.getText().toString());
                 contactLayout.setVisibility(View.GONE);
                 editContactLayout.setVisibility(View.VISIBLE);
             }
@@ -237,9 +238,12 @@ public class Activity_ViewProfile extends AppCompatActivity {
         editContactCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(editContactNo.getText().toString().length()<1 || editPersonalEmail.getText().toString().length()<1 || editWorkEmail.getText().toString().length()<1 || editAddress.getText().toString().length()<1)
+                if(editContactNo.getText().toString().length()<1 && editPersonalEmail.getText().toString().length()<1 && editWorkEmail.getText().toString().length()<1 && editAddress.getText().toString().length()<1)
                 {
                     contactLayout.setVisibility(View.GONE);
+                }
+                else{
+                    contactLayout.setVisibility(View.VISIBLE);
                 }
 
                 editPersonalEmail.setText("");
