@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,6 +27,7 @@
                 android:text="Web Developer"
                 android:textSize="@dimen/profile_textsize"
                 android:textStyle="bold"
+
                 android:layout_weight="1"/>
 
             <TextView
@@ -144,6 +146,7 @@
                 android:id="@+id/edit_start_year"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:layout_marginHorizontal="@dimen/profile_margin_horizontal"
                 android:hint="Start Year"/>
         </LinearLayout>
@@ -156,6 +159,7 @@
                 android:id="@+id/edit_end_month"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:layout_marginHorizontal="@dimen/profile_margin_horizontal"
                 android:hint="End Year"/>
             <EditText

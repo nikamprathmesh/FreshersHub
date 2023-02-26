@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -78,6 +79,11 @@ public class Activity_ViewProfile extends AppCompatActivity {
     ProjectAdapter projectAdapter;
     ImageView addProjectBtn;
 
+    RecyclerView achievementsRecyclerView;
+    ArrayList<AchievementItem> achievementItemArrayList;
+    AchievementAdapter achievementAdapter;
+    ImageView addAchievementBtn;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,9 +117,11 @@ public class Activity_ViewProfile extends AppCompatActivity {
         skillListView = findViewById(R.id.skillslistview);
         listAdapter = new ListAdapter(this, skillList);
         addSkillsBtn = findViewById(R.id.skills_add_button);
+
         addInternshipBtn = findViewById(R.id.internship_add_button);
         addEducationBtn = findViewById(R.id.education_add_button);
         addProjectBtn = findViewById(R.id.project_add_button);
+        addAchievementBtn =(ImageView) findViewById(R.id.achievement_add_button);
         editContactNo = findViewById(R.id.edit_profile_contact_no);
         editPersonalEmail = findViewById(R.id.edit_profile_personal_email);
         editWorkEmail = findViewById(R.id.edit_profile_work_email);
@@ -127,6 +135,9 @@ public class Activity_ViewProfile extends AppCompatActivity {
         editContactSaveBtn = findViewById(R.id.edit_contact_save_button);
         contactLayout = findViewById(R.id.contact_layout);
         editContactLayout = findViewById(R.id.edit_contact_layout);
+
+
+
 
 
         profilePrimaryEditBtn.setOnClickListener(new View.OnClickListener() {
@@ -204,7 +215,12 @@ public class Activity_ViewProfile extends AppCompatActivity {
         educationItemArrayList.add(new EducationItem("HSC","2019","Science","Vidya Pratishthan Baramati","64.15"));
         educationItemArrayList.add(new EducationItem("BE","2023","Computer","Government college of Engineering and Research Avasari","89.80"));
 
+        achievementItemArrayList = new ArrayList<>();
+        achievementsRecyclerView = findViewById(R.id.achievements_details_view);
+        achievementAdapter = new AchievementAdapter(this,achievementItemArrayList);
 
+        achievementItemArrayList.add(new AchievementItem("AIR1","College","20-03-2022","Got 1st Rank"));
+        achievementItemArrayList.add(new AchievementItem("AIR1","College","20-03-2022","Got 1st Rank"));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
         skillListView.setLayoutManager(linearLayoutManager);
@@ -222,13 +238,20 @@ public class Activity_ViewProfile extends AppCompatActivity {
         projectRecyclerView.setLayoutManager(linearLayoutManagerForProject);
         projectRecyclerView.setAdapter(projectAdapter);
 
+        LinearLayoutManager linearLayoutManagerForAchievement = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true);
+        achievementsRecyclerView.setLayoutManager(linearLayoutManagerForAchievement);
+        achievementsRecyclerView.setAdapter(achievementAdapter);
+
+
+
 
         editContactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                editPersonalEmail.setText(personalEmail.getText().toString());
-//                editContactNo.setText(contactNo.getText().toString());
-//                editWorkEmail.setText(workEmail.getText().toString());
+                editPersonalEmail.setText(personalEmail.getText().toString());
+                editContactNo.setText(contactNo.getText().toString());
+                editWorkEmail.setText(workEmail.getText().toString());
+                editAddress.setText(address.getText().toString());
                 contactLayout.setVisibility(View.GONE);
                 editContactLayout.setVisibility(View.VISIBLE);
             }
@@ -237,9 +260,12 @@ public class Activity_ViewProfile extends AppCompatActivity {
         editContactCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(editContactNo.getText().toString().length()<1 || editPersonalEmail.getText().toString().length()<1 || editWorkEmail.getText().toString().length()<1 || editAddress.getText().toString().length()<1)
+                if(editContactNo.getText().toString().length()<1 && editPersonalEmail.getText().toString().length()<1 && editWorkEmail.getText().toString().length()<1 && editAddress.getText().toString().length()<1)
                 {
                     contactLayout.setVisibility(View.GONE);
+                }
+                else{
+                    contactLayout.setVisibility(View.VISIBLE);
                 }
 
                 editPersonalEmail.setText("");
@@ -322,6 +348,14 @@ public class Activity_ViewProfile extends AppCompatActivity {
                     editSkill.setText("");
                     editSkillLayout.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        addAchievementBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                achievementItemArrayList.add(new AchievementItem("","","",""));
+                achievementAdapter.notifyItemInserted(achievementItemArrayList.size()-1);
             }
         });
 
