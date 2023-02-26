@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="profile_textsize">17sp</dimen>
+    <dimen name="profile_margin_vertical">10dp</dimen>
+    <dimen name="profile_margin_horizontal">10dp</dimen>
+    <dimen name="profile_heading_textsize">25sp</dimen>
+</resources>
