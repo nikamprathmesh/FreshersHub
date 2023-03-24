@@ -26,12 +26,18 @@ public class Activity_ViewProfile extends AppCompatActivity {
     EditText editProfilePrimaryQualification;
     EditText editProfilePrimaryPassingYear;
     EditText editProfilePrimaryStream;
+//    professional title added code
+    EditText editProfilePrimaryProfessionalTitle;
+//    professional title added code end
 
     TextView profilePrimaryName;
     TextView profilePrimaryRollNo;
     TextView profilePrimaryQualification;
     TextView profilePrimaryPassingYear;
     TextView profilePrimaryStream;
+    //    professional title added code
+    TextView profilePrimaryProfessionalTitle;
+    //    professional title added code end
     ImageView profileImage;
 
     LinearLayout profilePrimaryLayout;
@@ -95,13 +101,20 @@ public class Activity_ViewProfile extends AppCompatActivity {
         profilePrimaryQualification = findViewById(R.id.profile_primary_qualification);
         profilePrimaryPassingYear = findViewById(R.id.profile_primary_passing_year);
         profilePrimaryStream = findViewById(R.id.profile_primary_stream);
+        //    professional title added code
+        profilePrimaryProfessionalTitle = findViewById(R.id.profile_professional_title);
+        //    professional title added code end
         profileImage = findViewById(R.id.profile_primary_image);
+
 
         editProfilePrimaryName = findViewById(R.id.edit_profile_primary_name);
         editProfilePrimaryRollNo = findViewById(R.id.edit_profile_primary_roll_no);
         editProfilePrimaryQualification = findViewById(R.id.edit_profile_primary_qualification);
         editProfilePrimaryPassingYear = findViewById(R.id.edit_profile_primary_passing_year);
         editProfilePrimaryStream = findViewById(R.id.edit_profile_primary_stream);
+        //    professional title added code
+        editProfilePrimaryProfessionalTitle = findViewById(R.id.edit_profile_professional_title);
+        //    professional title added code end
 
         profilePrimaryCancelBtn = findViewById(R.id.profile_primary_cancel_button);
         profilePrimarySaveBtn = findViewById(R.id.profile_primary_save_button);
@@ -154,6 +167,9 @@ public class Activity_ViewProfile extends AppCompatActivity {
                 editProfilePrimaryQualification.setText("");
                 editProfilePrimaryPassingYear.setText("");
                 editProfilePrimaryStream.setText("");
+                //    professional title added code
+                editProfilePrimaryProfessionalTitle.setText("");
+                //    professional title added code end
                 editProfilePrimaryLayout.setVisibility(View.GONE);
             }
         });
@@ -162,11 +178,14 @@ public class Activity_ViewProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(
-                editProfilePrimaryName.getText().length()==0 ||
-                editProfilePrimaryRollNo.getText().length()==0 ||
-                editProfilePrimaryQualification.getText().length()==0 ||
-                editProfilePrimaryPassingYear.getText().length()==0 ||
-                editProfilePrimaryStream.getText().length()==0
+                        editProfilePrimaryName.getText().length()==0 ||
+                        editProfilePrimaryRollNo.getText().length()==0 ||
+                        editProfilePrimaryQualification.getText().length()==0 ||
+                        editProfilePrimaryPassingYear.getText().length()==0 ||
+                        editProfilePrimaryStream.getText().length()==0 ||
+                                //    professional title added code
+                        editProfilePrimaryProfessionalTitle.getText().length()==0
+                    //    professional title added code end
                 )
                 {
                     Toast.makeText(Activity_ViewProfile.this, "Enter Valid Data", Toast.LENGTH_SHORT).show();
@@ -177,11 +196,17 @@ public class Activity_ViewProfile extends AppCompatActivity {
                     profilePrimaryQualification.setText(editProfilePrimaryQualification.getText().toString());
                     profilePrimaryPassingYear.setText(" "+editProfilePrimaryPassingYear.getText().toString());
                     profilePrimaryStream.setText(" ("+editProfilePrimaryStream.getText().toString()+")");
+                    //    professional title added code
+                    profilePrimaryProfessionalTitle.setText(editProfilePrimaryProfessionalTitle.getText().toString());
+                    //    professional title added code end
                     editProfilePrimaryName.setText("");
                     editProfilePrimaryRollNo.setText("");
                     editProfilePrimaryQualification.setText("");
                     editProfilePrimaryPassingYear.setText("");
                     editProfilePrimaryStream.setText("");
+                    //    professional title added code
+                    editProfilePrimaryProfessionalTitle.setText("");
+                    //    professional title added code end
                     editProfilePrimaryLayout.setVisibility(View.GONE);
                 }
             }
