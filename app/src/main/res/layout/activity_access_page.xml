@@ -7,5 +7,53 @@
     tools:context=".AccessPage">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="@dimen/profile_margin_vertical"
+        android:layout_marginHorizontal="@dimen/profile_margin_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Access Page"
+            android:textStyle="bold"
+            android:textSize="@dimen/profile_heading_textsize"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/profile_margin_vertical"
+            android:text="Email Id"
+            android:textStyle="bold"
+            android:textSize="@dimen/profile_heading_textsize"
+            />
+
+        <EditText
+            android:id="@+id/access_page_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Here"
+            android:padding="10dp"
+            android:background="@drawable/profiile_border"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/profile_margin_vertical"
+            android:textSize="12sp"
+            android:textColor="#fc0303"
+            android:text="User with this Email will have permission to modify the content of this app"/>
+        <Button
+            android:id="@+id/access_page_access_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:layout_gravity="end"
+            android:text="Give Access"/>
+
+    </LinearLayout>
 
 </LinearLayout>

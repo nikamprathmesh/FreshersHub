@@ -78,6 +78,7 @@ public class MainBarChart extends AppCompatActivity implements AdapterView.OnIte
                 totalCompanies.setText("24");
                 placementHeading.setText("Placement Details");
 
+
             }
             else if(valuefromspinner.equals("2018"))
             {
@@ -155,7 +156,14 @@ public class MainBarChart extends AppCompatActivity implements AdapterView.OnIte
                 barEntryArrayList.add(new BarEntry(i,placeStud));
                 labelNames.add(branch);
             }
-            BarDataSet barDataSet = new BarDataSet(barEntryArrayList,"Branch");
+            BarDataSet barDataSet;
+            if(valuefromspinner.equals("Select Year"))
+            {
+                 barDataSet = new BarDataSet(barEntryArrayList,"Year");
+            }
+            else{
+                 barDataSet = new BarDataSet(barEntryArrayList,"Branch");
+            }
             barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
             Description description = new Description();
             description.setText("Branches");
